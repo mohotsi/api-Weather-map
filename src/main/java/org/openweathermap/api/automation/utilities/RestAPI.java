@@ -68,6 +68,11 @@ public class RestAPI {
         builder.setBody(body);
        return execute(endPoint);
     }
+    public String postAsSting(String endPoint,Object body){
+        method= "POST";
+        builder.setBody(body);
+        return execute(endPoint).andReturn().asString();
+    }
     public ResponseOptions<Response> put(String endPoint,Object body){
         method= "PUT";
         builder.setBody(body);
@@ -78,6 +83,12 @@ public class RestAPI {
 
         builder.setBaseUri(baseUrl);
       return   execute(endPoint);
+    }
+    public ResponseOptions<Response> delete(String endPoint){
+        method= "DELETE";
+
+        builder.setBaseUri(baseUrl);
+        return   execute(endPoint);
     }
 
 }

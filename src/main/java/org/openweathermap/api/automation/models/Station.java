@@ -3,17 +3,6 @@ package org.openweathermap.api.automation.models;
 import com.google.gson.annotations.SerializedName;
 import lombok.*;
 
-import java.util.UUID;
-
-/**
- * "{\n" +
- *              "  \"external_id\": \"SF_TEST001\",\n" +
- *              "  \"name\": \"San Francisco Test Station\",\n" +
- *              "  \"latitude\": 37.76,\n" +
- *              "  \"longitude\": -122.43,\n" +
- *              "  \"altitude\": 150\n" +
- *              "}"
- */
 
 @Builder
 @Data
@@ -22,6 +11,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @ToString
+
 public class Station {
 
  @SerializedName(value = "ID", alternate = {"id"})
@@ -33,7 +23,7 @@ public class Station {
       private String name;
       private Double latitude;
       private Double longitude;
-      private  Integer altitude;
+      private  Double altitude;
       private Integer rank;
       private Integer source_type;
 
@@ -42,13 +32,25 @@ public class Station {
  public boolean equals(Object that){
  if(!(that instanceof Station)) return false;
  val station= (Station) that;
- return external_id.equals(station.external_id)&&
+ return   (ID.equals(station.getID()))&&
+         external_id.equals(station.external_id)&&
          name.equals(station.name)&&
          longitude.equals(station.longitude)&&
         latitude.equals(station.latitude)&&
          altitude.equals(station.altitude);
 
 }
+ public boolean equalsIgnoreIDs(Object that){
+  if(!(that instanceof Station)) return false;
+  val station= (Station) that;
+  return
+          external_id.equals(station.external_id)&&
+          name.equals(station.name)&&
+          longitude.equals(station.longitude)&&
+          latitude.equals(station.latitude)&&
+          altitude.equals(station.altitude);
+
+ }
 
 
 
