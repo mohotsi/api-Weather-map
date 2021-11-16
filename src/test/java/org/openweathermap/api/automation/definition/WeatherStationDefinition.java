@@ -63,7 +63,7 @@ public class WeatherStationDefinition {
         if(condition.equalsIgnoreCase("contains")){
 
             val actual = Arrays.stream(response.thenReturn().as(Station[].class)).collect(Collectors.toList());
-            var expected = getExpectedStation(dataTable);
+            val expected = getExpectedStation(dataTable);
             expected.setID(id);
 
             assertThat("the body does not contain the expected Station",actual,hasItem(expected));
@@ -71,7 +71,7 @@ public class WeatherStationDefinition {
         if(condition.equalsIgnoreCase("does not contain")){
 
             val actual = Arrays.stream(response.thenReturn().as(Station[].class)).collect(Collectors.toList());
-            var expected = getExpectedStation(dataTable);
+            val expected = getExpectedStation(dataTable);
             expected.setID(id);
 
             assertThat("the body contain the expected Station",actual,not(hasItem(expected)));
