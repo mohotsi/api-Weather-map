@@ -22,3 +22,6 @@ testng.xml
 src/test/java/testng.xml
 
 mvn clean test 
+
+# Report setting on:
+target/output/HtmlReports.json,html:target/output/HtmlReports.html
