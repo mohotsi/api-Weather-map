@@ -19,6 +19,6 @@ TestNG for assertion and reporting
 to run it directly on IDE
 run testNG file
 testng.xml
-src/main/resources/testng.xml
+src/test/java/testng.xml
 
 mvn clean test 
